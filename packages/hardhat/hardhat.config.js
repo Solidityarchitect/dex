@@ -12,6 +12,10 @@ require("@nomiclabs/hardhat-etherscan");
 
 require("hardhat-deploy-ethers");
 
+const { ProxyAgent, setGlobalDispatcher } = require("undici")
+const proxyAgent = new ProxyAgent("http://127.0.0.1:7890")
+setGlobalDispatcher(proxyAgent)
+
 const { isAddress, getAddress, formatUnits, parseUnits } = utils;
 
 /*
